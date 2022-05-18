@@ -57,7 +57,7 @@ head
                 li.header__navbar-user-item
                   a(href='') Địa chỉ của tôi
                 li.header__navbar-user-item
-                  a(href='') Đã mua
+                  a(href='/cart') Đã mua
                 li.header__navbar-user-item.header__navbar-user-item--separate
                   a(href='/logout') Đăng xuất
       // Header with Search
@@ -74,9 +74,11 @@ head
               h3.header__search-history-heading Lịch sử tìm kiếm
               ul.header__search-history-list
                 li.header__search-history-item
-                  a(href='') Thời trang nam
+                  a(href='/A#listPP') Thời trang nữ
                 li.header__search-history-item
-                  a(href='') Thời trang nữ
+                  a(href='/B#listPP') Thời trang nam
+                li.header__search-history-item
+                  a(href='/C#listPP') Thời trang trẻ em
           button.header__search-btn
             i.fas.fa-search.header__search-btn-icon
         // Cart Layout
@@ -183,8 +185,6 @@ head
   //- +auth('/register', '/login')
   include ./auth/login
   include ./layouts/footer
-script
-  include ../../script/home.js
-script
-  include ../../script/modals/modal.auth.js
+script(src="/script/home.js")
+script(src="/script/modals/modal.auth.js")
 

@@ -103,9 +103,6 @@ a(href='#payment').move-to-payment
     .modal__footer
       button(form='home-product-cart', formaction='/success').btn-success OK 
 form#path
-script  
-  include ../../script/modals/modal.js
-script
-  include ../../script/cart.js
-script  
-  include ../../script/modals/modal.auth.js
+script(src="/script/modals/modal.js")
+script(src="/script/cart.js")
+script(src="/script/modals/modal.auth.js")

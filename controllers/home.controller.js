@@ -31,10 +31,12 @@ module.exports.success = async function (req, res) {
 module.exports.register = function (req, res) {
 	const userId = nanoid(10)
 	const username = req.body.username
+	const userPhone = req.body.phone
+	const userAddress = req.body.address
 	const account = req.body.account
 	const password = req.body.password
-	var sql = `INSERT INTO customers (customerId,customerName, customerUsername, customerPassword) 
-	VALUES ('${userId}' ,'${username}', '${account}', '${password}')`
+	var sql = `INSERT INTO customers (customerId, customerName, customerPhone, customerAddress, customerUsername, customerPassword) 
+	VALUES ('${userId}' ,'${username}', '${userPhone}', '${userAddress}','${account}', '${password}')`
 
 	connection.query(sql, (err, result) => { })
 
