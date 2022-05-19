@@ -3,7 +3,7 @@ create database my_db;
 use my_db;
 
 CREATE TABLE `customers` (
-  `customerId` int(11) NOT NULL AUTO_INCREMENT, 
+  `customerId` varchar(255) NOT NULL, 
   `customerName` varchar(50) NOT NULL,
   `customerUsername` varchar(50) NOT NULL,
   `customerPassword` varchar(50) NOT NULL,
@@ -12,10 +12,12 @@ CREATE TABLE `customers` (
   PRIMARY KEY (`customerId`)
 );
 
-CREATE TABLE `orders` (
-  `orderNumber` int(11) NOT NULL,
-  `orderDate` varchar(255) NOT NULL,
-  `customerId` int(11) NOT NULL,
+CREATE TABLE `orders` 
+  `productCode` varchar(45) NOT NULL,
+  `orderDate` varchar(255) NOT NULL CURRENT_TIMESTAMP DEFAULT_GENERATED on update CURRENT_TIMESTAMP,
+  `quantityOrdered` varchar(45) NOT NULL,
+  `customerId` varchar(255) NOT NULL,
+  `priceEach` varchar(255) NOT NULL,
   PRIMARY KEY (`orderNumber`),
   KEY `customerId` (`customerId`),
   CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`customerId`) REFERENCES `customers` (`customerId`)
@@ -23,7 +25,7 @@ CREATE TABLE `orders` (
 
 CREATE TABLE `products` (
   `productCode` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `productName` varchar(70) NOT NULL,
+  `productName` varchar(1000) NOT NULL,
   `productLine` varchar(50) NOT NULL,
   `quantityInStock` smallint(6) NOT NULL,
   `buyPriceOld` decimal(10,2) NOT NULL,
